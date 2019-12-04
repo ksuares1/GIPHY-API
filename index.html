@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Giphy API</title>
+    <title>Giftastic</title>
 
 </head>
 <body>
@@ -42,8 +42,12 @@
             $.ajax({
               url: queryURL,
               method: "GET"
-            }).then(function(response) {
+            })
+            .then(function(response) {
+              console.log(queryURL);
               console.log(response);
+            }
+        });
 </script>
 </body>
 </html>
