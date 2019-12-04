@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy API</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript"></script>
+
 </head>
 <body>
+    <button data-animal="cat">cat/button>
+    <button data-animal="dog">dog</button>
+    <button data-animal="bird">bird</button>
+    <button data-animal="butterfly">butterfly</button>
+    <button data-animal="giraffe">giraffe</button>
+    <button data-animal="elephant">elephant</button>
+    <button data-animal="tiger">tiger</button>
+    <div id="gifs-appear-here">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
         $("button").on("click", function() {
             var animal = $(this).attr("data-animal");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
