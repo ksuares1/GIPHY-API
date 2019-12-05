@@ -8,7 +8,6 @@
 
 </head>
 <body>
-      var christmasTopics=("Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes", "Presents")
     <button data-xmas="Reindeer">Reindeer</button>
     <button data-xmas="Santa">Santa</button>
     <button data-xmas="Fir Tree">Fir Tree </button>
@@ -22,11 +21,12 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+      var christmasTopics=("Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes", "Presents")
 
         $("button").on("click", function() {
             var xmas = $(this).attr("data-xmas");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-              animal + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=7";
+              animal + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
       
             $.ajax({
               url: queryURL,
