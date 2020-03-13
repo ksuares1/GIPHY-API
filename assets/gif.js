@@ -19,13 +19,12 @@ $(document).ready(function () {
                 var rudInfo = response.data;
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
-                    var img = $("<img/>")
-                    // console.log(rudInfo[i]);
-                    // console.log(rudInfo[i].type);
+                    var petsImg = $("<img/>");
                     console.log(rudInfo[i].images.downsized_large.url);
-                    img.attr("src", rudInfo[i].images.downsized_large.url);
+                    petsImg.attr("src", rudInfo[i].images.downsized_large.url);
                     reindeer.append(img);
                     console.log(rudInfo[i].rating);
+                    img
                     
                     // console.log(response.data.type);
                     // console.log(response.data.url.images);
