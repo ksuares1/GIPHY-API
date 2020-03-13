@@ -3,10 +3,12 @@ $(document).ready(function () {
     var christmasTopics = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
         "Presents"]
 
-
+    // var santasHelpers= "reindeer";
     $("button").on("click", function () {
+        var reindeer = $(".reindeer");
+        var reinRat= $(".reindeer")
         var xmas = $(this).attr("data-xmas");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + reindeer
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + "reindeer"
             + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
 
         $.ajax({
@@ -14,16 +16,45 @@ $(document).ready(function () {
             method: "GET"
         })
             .then(function (response) {
-                console.log(response);
-                console.log(response.data.url[i].images);
-                console.log(response.data.rating[i]);
-            
+                var rudInfo = response.data;
+                console.log(rudInfo);
+                for (var i = 0; i < rudInfo.length; i++) {
+                    var img = $("<img/>")
+                    // console.log(rudInfo[i]);
+                    // console.log(rudInfo[i].type);
+                    console.log(rudInfo[i].images.downsized_large.url);
+                    img.attr("src", rudInfo[i].images.downsized_large.url);
+                    reindeer.append(img);
+                    console.log(rudInfo[i].rating);
+                    
+                    // console.log(response.data.type);
+                    // console.log(response.data.url.images);
+                    // console.log(response.data.rating[i]);
+                }
+
 
 
                 console.log("ready!");
             })
     })
 });
+
+/*
+{
+    prop:value
+}
+
+[0,1,2,3,4]
+
+    data = [
+        {},
+        {}, <-rudolph
+        {},
+        {},
+        {}
+    ]
+
+*/
 
 
 // var santaPets = $("#slug").attr("src", response.data[0].images.fixed_height.url);
