@@ -3,6 +3,17 @@ $(document).ready(function () {
     var christmasTopics = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
         "Presents"]
 
+
+        // function to make buttons and add to page
+        function createButtons(arrayToUse, classToAdd, areaToAdd){
+            $(areaToAddTo).empty();
+           
+            for(var i=0; i< arrayToUse.length; i++){
+                var a = $("<button>");
+                a
+            }
+        }
+        
     // var santasHelpers= "reindeer";
     $("button").on("click", function () {
         var reindeer = $(".reindeer");
