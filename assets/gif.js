@@ -1,23 +1,11 @@
 $(document).ready(function () {
 
-    var christmasTopics = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
+    var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
         "Presents"]
 
-
-        // function to make buttons and add to page
-        function createButtons(arrayToUse, classToAdd, areaToAdd){
-            $(areaToAddTo).empty();
-           
-            for(var i=0; i< arrayToUse.length; i++){
-                var a = $("<button>");
-                a
-            }
-        }
-        
     // var santasHelpers= "reindeer";
     $("button").on("click", function () {
         var reindeer = $(".reindeer");
-        var reinRat= $(".reindeer")
         var xmas = $(this).attr("data-xmas");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + "reindeer"
             + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
@@ -30,16 +18,19 @@ $(document).ready(function () {
                 var rudInfo = response.data;
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
-                    var petsImg = $("<img/>");
-                    console.log(rudInfo[i].images.downsized_large.url);
-                    petsImg.attr("src", rudInfo[i].images.downsized_large.url);
-                    reindeer.append(img);
-                    console.log(rudInfo[i].rating);
-                    img
                     
-                    // console.log(response.data.type);
-                    // console.log(response.data.url.images);
-                    // console.log(response.data.rating[i]);
+                    var christmasThingsDiv = $("<div class=\ "animal-item\">");
+                    var img = $("<img/>")
+                    var rating = rudInfo[i].rating;
+                    var p = $("<p>").text("Rating: " + rating);
+    
+                    console.log(rudInfo[i].images.downsized_large.url);
+                    img.attr("src", rudInfo[i].images.downsized_large.url);
+                    reindeer.append(img);
+                    christmasThingsDiv.append(p);
+                    // console.log(rudInfo[i].rating);
+                    // rating.attr(rudInfo[i].rating);
+                
                 }
 
 
