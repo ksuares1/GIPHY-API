@@ -1,9 +1,25 @@
 $(document).ready(function () {
 
     var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
-        "Presents"]
+        "Presents"];
 
-    // var santasHelpers= "reindeer";
+        // buttons for page
+
+
+    function createButtons(arrayToUse, classToAdd, areaToAddTo){
+        $(areaToAddTo).empty();
+        for(var i=0; i<arrayToUse.length;i++){
+            var a = $("<button>");
+            a.addClass(classToAdd);
+            a.attr("data-type", arrayToUse[i]);
+            a.text(arrayToUse[i]);
+            $(areaToAddTo).append(a);
+        }
+    }
+
+    //function that will populate 
+
+        
     $("button").on("click", function () {
         var reindeer = $(".reindeer");
         var xmas = $(this).attr("data-xmas");
@@ -19,7 +35,7 @@ $(document).ready(function () {
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
                     
-                    var christmasThingsDiv = $("<div class=\ "animal-item\">");
+                    // var christmasThingsDiv = $("<div class=\ "animal-item\">");
                     var img = $("<img/>")
                     var rating = rudInfo[i].rating;
                     var p = $("<p>").text("Rating: " + rating);
@@ -31,7 +47,7 @@ $(document).ready(function () {
                     // console.log(rudInfo[i].rating);
                     // rating.attr(rudInfo[i].rating);
                 
-                }
+                } 
 
 
 
