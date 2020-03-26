@@ -4,31 +4,26 @@ $(document).ready(function () {
         "Presents"];
 
     // buttons for page
-
-
-    function createButtons(arrayToUse, classToAdd, areaToAddTo) {
-        $(areaToAddTo).empty();
-        for (var i = 0; i < arrayToUse.length; i++) {
+    $(".santa").on("click", function () {
+        console.log("santa");
+        // $(areaToAddTo).empty();
+        for (var i = 0; i < christmasThings.length; i++) {
             var a = $("<button>");
-            a.addClass(classToAdd);
-            a.attr("data-type", arrayToUse[i]);
-            a.text(arrayToUse[i]);
-            $(areaToAddTo).append(a);
+            a.addClass("xmas");
+            a.attr("data-type", christmasThings[i]);
+            a.text(christmasThings[i]);
+            $(".christmas-buttons").append(a);
         }
-    }
+    })
 
-    //function that will populate images from Giphy API
-
-    // $("button").on("click", function () {
-    // var reindeer = $(".reindeer");
-    // var xmas = $(this).attr("data-xmas");
-
-    $(document).on("click", ".christmas-button", function () {
+    $(document).on("click", ".xmas", function () {
+        var type = $(this).attr("data-type");
+        console.log(type);
         $("#christmasThings").empty();
-        (".christmas-button").removeClass("active");
+        // (".christmas-buttons").removeClass("active");
         $(this).addClass("active");
 
-        var type = $(this).attr("christmasThing  ");
+        var type = $(this).attr("data-type");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type
             + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
 
@@ -40,70 +35,57 @@ $(document).ready(function () {
                 var rudInfo = response.data;
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
+                    var santaImage = $("<img>");
+                    var still = rudInfo[i].images.fixed_height_small_still.url;
+                    santaImage.attr("src", still); 
+                    var rating = rudInfo[i].rating;
+                    var p = $("<p>").text("Rating: " + rating);
+                    $("#christmasThings").append(santaImage, p);
 
-                    var christmasThingsDiv = $("<div class=\"xmas-item\">");
-                    // var img = $("<img/>")
-                    // var rating = rudInfo[i].rating;
-                    // var p = $("<p>").text("Rating: " + rating);
+                //     var animated = results[i].images.fixed_height.url;
+                //     var still = results[i].images.fixed_height_still.url;
+                //     santaImage.attr("src", still);
+                //     santaImage.attr("data-still", still);
+                //     santaImage.attr("data-animate", animated);
+                //     santaImage.attr("data-state", "still");
+                //     santaImage.addClass("xmas-image");
 
-                    // console.log(rudInfo[i].images.downsized_large.url);
-                    // img.attr("src", rudInfo[i].images.downsized_large.url);
-                    // reindeer.append(img);
-                    christmasThingsDiv.append(p);
-                    // console.log(rudInfo[i].rating);
-                    // rating.attr(rudInfo[i].rating);
-
+                //     christmasThingsDiv.append(p);
+                //     christmasThingsDiv.append(animalImage);
+                //  $("#christmasThings").append(christmasThingsDiv);
                 }
 
-                var rating = rudInfofu[i].rating;
-
-                var p = $("<p>").text("Rating: " + rating);
-
-                var animated = results[i].images.fixed_height.url;
-                var still = results[i].images.fixed_height_still.url;
-
-                var santaImage = $("<img>");
-                santaImage.attr("src", still);
-                santaImage.attr("data-still", still);
-                santaImage.attr("data-animate", animated);
-                santaImage.attr("data-state", "still");
-                santaImage.addClass("xmas-image");
-
-                christmasThingsDiv.append(p);
-                christmasThingsDiv.append(animalImage);
-
-                $("#christmasThings").append(christmasThingsDiv);
-            
             })
-        });
-});
+    });
 
-$(document).on("click", ".add-helper", function () {
+    $(document).on("click", ".add-helper", function () {
 
-    var state = $(this).attr("data-state");
+        var state = $(this).attr("data-state");
 
-    if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-    }
-    else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-    }
-});
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
 
-$("#add-helper").on("click", function (event) {
-    event.preventDefault();
-    var santaThing = $("input").eq(0).val();
+    $("#add-helper").on("click", function (event) {
+        event.preventDefault();
+        var santaThing = $("input").eq(0).val();
 
-    if (santaThing.length > 2) {
-        christmasThings.push(santaThing);
-    }
+        if (santaThing.length > 2) {
+            christmasThings.push(santaThing);
+        }
 
-    createButtons(christmasThings, "christmas-button", "#christmas-button");
+        // (christmasThings, "christmas-button", "#christmas-button");
 
 
-    console.log("ready!");
+        console.log("ready!");
+    });
+
 });
 
 
