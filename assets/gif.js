@@ -23,13 +23,13 @@ $(document).ready(function () {
     // var reindeer = $(".reindeer");
     // var xmas = $(this).attr("data-xmas");
 
-    $(document).on("click", ".christmas-buttons", function () {
+    $(document).on("click", ".christmas-button", function () {
         $("#christmasThings").empty();
-        (".christmas-buttons").removeClass("active");
+        (".christmas-button").removeClass("active");
         $(this).addClass("active");
 
-        var type = $(this).attr("data-type");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + "reindeer"
+        var type = $(this).attr("christmasThing  ");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type
             + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
 
         $.ajax({
@@ -94,13 +94,13 @@ $(document).on("click", ".add-helper", function () {
 
 $("#add-helper").on("click", function (event) {
     event.preventDefault();
-    var newAnimal = $("input").eq(0).val();
+    var santaThing = $("input").eq(0).val();
 
-    if (newAnimal.length > 2) {
-        animals.push(newAnimal);
+    if (santaThing.length > 2) {
+        christmasThings.push(santaThing);
     }
 
-    populateButtons(animals, "animal-button", "#animal-buttons");
+    createButtons(christmasThings, "christmas-button", "#christmas-button");
 
 
     console.log("ready!");
