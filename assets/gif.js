@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Carols", "Candy Canes",
+    var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Elf", "Candy Canes",
         "Presents"];
 
     // buttons for page
