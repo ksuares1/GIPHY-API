@@ -41,49 +41,68 @@ $(document).ready(function () {
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
 
-                    var christmasThingsDiv = $("<div class=\ "animal-item\">");
-                    var img = $("<img/>")
-                    var rating = rudInfo[i].rating;
-                    var p = $("<p>").text("Rating: " + rating);
+                    var christmasThingsDiv = $("<div class=\ "animal - item\">");
+                    // var img = $("<img/>")
+                    // var rating = rudInfo[i].rating;
+                    // var p = $("<p>").text("Rating: " + rating);
 
-                    console.log(rudInfo[i].images.downsized_large.url);
-                    img.attr("src", rudInfo[i].images.downsized_large.url);
-                    reindeer.append(img);
+                    // console.log(rudInfo[i].images.downsized_large.url);
+                    // img.attr("src", rudInfo[i].images.downsized_large.url);
+                    // reindeer.append(img);
                     christmasThingsDiv.append(p);
                     // console.log(rudInfo[i].rating);
                     // rating.attr(rudInfo[i].rating);
 
                 }
 
+                var rating = rudInfo[i].rating;
 
+                var p = $("<p>").text("Rating: " + rating);
 
-                console.log("ready!");
-            })
-    })
+                var animated = results[i].images.fixed_height.url;
+                var still = results[i].images.fixed_height_still.url;
+
+                var santaImage = $("<img>");
+                santaImage.attr("src", still);
+                santaImage.attr("data-still", still);
+                santaImage.attr("data-animate", animated);
+                santaImage.attr("data-state", "still");
+                santaImage.addClass("animal-image");
+
+                animalDiv.append(p);
+                animalDiv.append(animalImage);
+
+                $("#animals").append(animalDiv);
+            }
+            });
 });
 
-/*
-{
-    prop:value
-}
+$(document).on("click", ".add-helper", function () {
 
-[0,1,2,3,4]
+    var state = $(this).attr("data-state");
 
-    data = [
-        {},
-        {}, <-rudolph
-        {},
-        {},
-        {}
-    ]
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 
-*/
+$("#add-helper").on("click", function (event) {
+    event.preventDefault();
+    var newAnimal = $("input").eq(0).val();
+
+    if (newAnimal.length > 2) {
+        animals.push(newAnimal);
+    }
+
+    populateButtons(animals, "animal-button", "#animal-buttons");
 
 
-// var santaPets = $("#slug").attr("src", response.data[0].images.fixed_height.url);
+    console.log("ready!");
+});
 
- // var results = response.data;
-    // for(var i= 0; i< results.data.length; i++){
-    //     var gifDiv = $('<div>');
-    //     var rating = results[i].rating;
-    //     var p = $("<p>").text("Rating:" + rating);
+
