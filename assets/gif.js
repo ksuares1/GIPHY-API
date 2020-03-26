@@ -17,12 +17,17 @@ $(document).ready(function () {
         }
     }
 
-    //function that will populate 
+    //function that will populate images from Giphy API
 
-        
-    $("button").on("click", function () {
-        var reindeer = $(".reindeer");
-        var xmas = $(this).attr("data-xmas");
+    // $("button").on("click", function () {
+         // var reindeer = $(".reindeer");
+        // var xmas = $(this).attr("data-xmas");
+    
+        $(document).on("click", ".christmas-buttons", function(){
+        $("#christmasThings").empty();
+        (".christmas-buttons").removeClass("active");
+        $(this).addClass("active");
+       
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + "reindeer"
             + "&api_key=UbAY6SJJhOljEzSrIOAedTGTZperCmLZ&limit=10";
 
