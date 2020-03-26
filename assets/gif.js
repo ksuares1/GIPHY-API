@@ -41,7 +41,7 @@ $(document).ready(function () {
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
 
-                    var christmasThingsDiv = $("<div class=\ "animal - item\">");
+                    var christmasThingsDiv = $("<div class=\"xmas-item\">");
                     // var img = $("<img/>")
                     // var rating = rudInfo[i].rating;
                     // var p = $("<p>").text("Rating: " + rating);
@@ -55,7 +55,7 @@ $(document).ready(function () {
 
                 }
 
-                var rating = rudInfo[i].rating;
+                var rating = rudInfofu[i].rating;
 
                 var p = $("<p>").text("Rating: " + rating);
 
@@ -67,14 +67,15 @@ $(document).ready(function () {
                 santaImage.attr("data-still", still);
                 santaImage.attr("data-animate", animated);
                 santaImage.attr("data-state", "still");
-                santaImage.addClass("animal-image");
+                santaImage.addClass("xmas-image");
 
-                animalDiv.append(p);
-                animalDiv.append(animalImage);
+                christmasThingsDiv.append(p);
+                christmasThingsDiv.append(animalImage);
 
-                $("#animals").append(animalDiv);
-            }
-            });
+                $("#christmasThings").append(christmasThingsDiv);
+            
+            })
+        });
 });
 
 $(document).on("click", ".add-helper", function () {
