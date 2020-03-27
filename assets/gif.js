@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Elf", "Candy Canes",
-        "Presents" , "Advent", "Christmas Pajamas"];
+        "Presents", "Advent", "Christmas Pajamas"];
 
     // buttons for page
     $(".santa").on("click", function () {
@@ -36,20 +36,20 @@ $(document).ready(function () {
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
                     var santaImage = $("<img>");
+                    santaImage.addClass("santaImage");
                     var animated = rudInfo[i].images.fixed_height.url;
                     santaImage.attr("data-animate", animated);
                     var still = rudInfo[i].images.fixed_height_still.url;
-                    santaImage.attr("src", still); 
+                    santaImage.attr("src", still);
+                    santaImage.attr("data-state", "still");
                     var rating = rudInfo[i].rating;
                     var p = $("<p>").text("Rating: " + rating);
                     $("#christmasThings").append(santaImage, p);
-
                 }
-
             })
     });
 
-    $(document).on("click", "#add-helper", function () {
+    $(document).on("click", ".santaImage", function () {
 
         var state = $(this).attr("data-state");
 
@@ -64,18 +64,27 @@ $(document).ready(function () {
     });
 
     $("#add-helper").on("click", function (event) {
+        console.log("time");
         event.preventDefault();
         var santaThing = $("input").eq(0).val();
+        var a = $("<button>");
+        a.addClass("xmas");
+        a.attr("data-type", santaThing);
+        a.text(santaThing);
+        $(".christmas-buttons").append(a);
+        // console.log(santaThing);
+        // if (santaThing.length > 2) {
+        //     christmasThings.push(santaThing);
+        //     console.log("thing");
+        // }
 
-        if (santaThing.length > 2) {
-            christmasThings.push(santaThing);
-        }
-
-        // (christmasThings, "christmas-button", "#christmas-button");
+        (christmasThings, "christmas-button", ".christmas-buttons");
 
 
         console.log("ready!");
     });
+
+    (christmasThings, "christmas-button", ".christmas-buttons");
 
 });
 
