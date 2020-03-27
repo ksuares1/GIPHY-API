@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var christmasThings = ["Reindeer", "Santa", "Fir Tree", "Snow", "Hot Chocolate", "Ornaments", "Elf", "Candy Canes",
-        "Presents"];
+        "Presents" , "Advent", "Christmas Pajamas"];
 
     // buttons for page
     $(".santa").on("click", function () {
@@ -36,29 +36,20 @@ $(document).ready(function () {
                 console.log(rudInfo);
                 for (var i = 0; i < rudInfo.length; i++) {
                     var santaImage = $("<img>");
-                    var still = rudInfo[i].images.fixed_height_small_still.url;
+                    var animated = rudInfo[i].images.fixed_height.url;
+                    santaImage.attr("data-animate", animated);
+                    var still = rudInfo[i].images.fixed_height_still.url;
                     santaImage.attr("src", still); 
                     var rating = rudInfo[i].rating;
                     var p = $("<p>").text("Rating: " + rating);
                     $("#christmasThings").append(santaImage, p);
 
-                //     var animated = results[i].images.fixed_height.url;
-                //     var still = results[i].images.fixed_height_still.url;
-                //     santaImage.attr("src", still);
-                //     santaImage.attr("data-still", still);
-                //     santaImage.attr("data-animate", animated);
-                //     santaImage.attr("data-state", "still");
-                //     santaImage.addClass("xmas-image");
-
-                //     christmasThingsDiv.append(p);
-                //     christmasThingsDiv.append(animalImage);
-                //  $("#christmasThings").append(christmasThingsDiv);
                 }
 
             })
     });
 
-    $(document).on("click", ".add-helper", function () {
+    $(document).on("click", "#add-helper", function () {
 
         var state = $(this).attr("data-state");
 
