@@ -5,3 +5,6 @@ This application uses GIPHY's API to gernerate Christmas animated and still GIF'
 ## Technologies
 - JavaScript
 - JQuery
+
+## Getting Started
+Clone this repository to your terminal 
