@@ -1,5 +1,5 @@
 # GIPHY-API
-This application uses GIPHY API to generate still and animated GIFS. 
+This application uses GIPHY's API to gernerate Christmas animated and still GIF's. 
 
 
 ## Technologies
