@@ -7,7 +7,9 @@ This application uses GIPHY's API to gernerate Christmas animated and still GIF'
 
 ## Getting Started
 - Clone this repository to your terminal https://github.com/ksuares1/GIPHY-API.git
-- When a user entered 
+- When a user clicks the create buttons, then several buttons are generated. 
+- After clicking on one of the buttons, a gif icon for that button appears on the page. 
+- If the user decides to click on the gif individually, it will become an animated gif. 
 
 
 ## Technologies
