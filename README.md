@@ -13,10 +13,10 @@ This application uses GIPHY's API to gernerate Christmas animated and still GIF'
 
 
 ## Technologies
-- JavaScript
-- JQuery
+- **JavaScript**
+- **JQuery**
  
-- AJAX/API
+- **AJAX/API**
 
 
  
