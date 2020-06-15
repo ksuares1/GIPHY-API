@@ -17,6 +17,7 @@ This application uses GIPHY's API to gernerate Christmas animated and still GIF'
 - **JQuery**
 - **AJAX/API**
 - **HTML5**
+- **Bootstrap**
 
 
 ## Live Recording
